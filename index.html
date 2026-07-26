@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 検索エンジンにインデックスされないように設定 -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <title>協賛パートナー様リンク集 | 誇り講演会 誇高MATSURI in 富山</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1d4e79; 
+            --tateyama-blue: #4a8ac2;
+            --ice-bg: #fffaf0;
+            --accent-red: #e65c53;
+            --accent-gold: #f2aa4c;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --white: #ffffff;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-main);
+            background-color: var(--ice-bg);
+            line-height: 1.6;
+            font-size: 16px;
+            /* 背景にうっすら模様をつける（オプション） */
+            background-image: radial-gradient(#f0e4d0 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .serif {
+            font-family: 'Shippori Mincho', serif;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        /* リンク集特有の細め（スマホ最適化）コンテナ */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 16px 60px;
+        }
+
+        /* ヘッダー・プロフィール領域 */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .profile-icon-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-icon-wrap i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+
+        .page-title {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .page-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            line-height: 1.6;
+        }
+
+        /* リンクボタンのリスト */
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Linktree風ボタンデザイン */
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            padding: 16px 20px;
+            border-radius: 16px;
+            border: 2px solid var(--tateyama-blue);
+            color: var(--primary-blue);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn:active {
+            transform: scale(0.97);
+        }
+
+        .link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(29, 78, 121, 0.15);
+            background: linear-gradient(135deg, #f8fbfd 0%, #eef5fa 100%);
+        }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .link-icon {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            width: 32px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .link-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .link-desc {
+            font-size: 0.8rem;
+            color: #777;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .link-arrow {
+            font-size: 1rem;
+            color: var(--tateyama-blue);
+            opacity: 0.5;
+            transition: transform 0.3s;
+        }
+
+        .link-btn:hover .link-arrow {
+            transform: translateX(4px);
+            opacity: 1;
+        }
+
+        /* 戻るボタン */
+        .back-to-lp {
+            display: inline-block;
+            margin-top: 40px;
+            color: var(--primary-blue);
+            font-weight: 800;
+            text-decoration: underline;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* アニメーション */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- プロフィールヘッダーエリア -->
+        <div class="profile-header">
+            <div class="profile-icon-wrap">
+                <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <h1 class="page-title serif">誇高MATSURI in 富山<br>協賛パートナー様</h1>
+            <p class="page-desc">
+                本講演会の開催にご賛同いただいた<br>素敵な皆様をご紹介します！<br>
+                ぜひリンクよりご覧ください✨
+            </p>
+        </div>
+
+        <!-- Linktree風 リンクボタンリスト -->
+        <div class="link-list">
+
+            <!-- ==============================================
+                 【1】輝く女性応援プロジェクト「リアライフ」
+            ================================================== -->
+            <!-- ▼ href="https://example.com" の部分を実際のURLに変更してください ▼ -->
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="link-content">
+                    <i class="fa-solid fa-sun link-icon"></i>
+                    <div class="link-text">
+                        <span class="link-title">輝く女性応援プロジェクト「リアライフ」</span>
+                        <!-- ▼ 短い一言PR文（不要な場合はこの行を削除してください） ▼ -->
+                        <span class="link-desc">女性が自分らしく輝くためのサポート</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- ==============================================
+                 【2】人生を描くデザイン書道作家・安井ちあき
+            ================================================== -->
+            <!-- ▼ href="https://example.com" の部分を実際のURLに変更してください ▼ -->
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="link-content">
+                    <i class="fa-solid fa-pen-nib link-icon"></i>
+                    <div class="link-text">
+                        <span class="link-title">人生を描くデザイン書道作家・安井ちあき</span>
+                        <!-- ▼ 短い一言PR文 ▼ -->
+                        <span class="link-desc">あなたの想いを温かみのある筆文字で</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- ==============================================
+                 【3】小さな冒険学舎
+            ================================================== -->
+            <!-- ▼ href="https://example.com" の部分を実際のURLに変更してください ▼ -->
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="link-content">
+                    <i class="fa-solid fa-compass link-icon"></i>
+                    <div class="link-text">
+                        <span class="link-title">小さな冒険学舎</span>
+                        <!-- ▼ 短い一言PR文 ▼ -->
+                        <span class="link-desc">自然の中での体験を通じて生きる力を育む</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- ==============================================
+                 【4】荒井電気
+            ================================================== -->
+            <!-- ▼ href="https://example.com" の部分を実際のURLに変更してください ▼ -->
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="link-content">
+                    <i class="fa-solid fa-bolt link-icon"></i>
+                    <div class="link-text">
+                        <span class="link-title">荒井電気</span>
+                        <!-- ▼ 短い一言PR文 ▼ -->
+                        <span class="link-desc">地域に根ざした電気工事のプロフェッショナル</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- ==============================================
+                 【5】オモロー授業発表会
+            ================================================== -->
+            <!-- ▼ href="https://example.com" の部分を実際のURLに変更してください ▼ -->
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="link-content">
+                    <i class="fa-solid fa-lightbulb link-icon"></i>
+                    <div class="link-text">
+                        <span class="link-title">オモロー授業発表会</span>
+                        <!-- ▼ 短い一言PR文 ▼ -->
+                        <span class="link-desc">常識を覆す面白い授業をシェアし合うイベント</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+            <!-- ==============================================
+                 【6】誠のグローブメンテナンス
+            ================================================== -->
+            <!-- ▼ href="https://example.com" の部分を実際のURLに変更してください ▼ -->
+            <a href="https://example.com" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="link-content">
+                    <i class="fa-solid fa-baseball link-icon"></i>
+                    <div class="link-text">
+                        <span class="link-title">誠のグローブメンテナンス</span>
+                        <!-- ▼ 短い一言PR文 ▼ -->
+                        <span class="link-desc">大切な野球道具に命を吹き込む丁寧なメンテナンス</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right link-arrow"></i>
+            </a>
+
+        </div> <!-- /link-list -->
+
+        <a href="index.html" class="back-to-lp"><i class="fa-solid fa-arrow-left"></i> 講演会LPに戻る</a>
+    </div>
+
+</body>
+</html>
