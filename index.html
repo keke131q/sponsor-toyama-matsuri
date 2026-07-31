@@ -171,15 +171,6 @@
             animation: fadeInUp 1.2s ease-out forwards;
         }
 
-        /* ブロンズ（PC:2列、スマホ:1列） */
-        .tier-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 12px;
-            margin-bottom: 30px;
-            animation: fadeInUp 1.3s ease-out forwards;
-        }
-
         /* ブース出展（PC:2列、スマホ:1列） */
         .booth-list {
             display: grid;
@@ -284,8 +275,7 @@
             text-decoration: none;
         }
 
-        /* ブロンズ＆ブース出展用のシンプルなボタンデザイン */
-        .tier-4 .link-btn,
+        /* ブース出展用のシンプルなボタンデザイン */
         .booth-list .link-btn {
             background: var(--white);
             border: 2px solid var(--primary-blue);
@@ -299,7 +289,6 @@
             transform: scale(0.98);
         }
 
-        .tier-4 .link-btn:hover,
         .booth-list .link-btn:hover {
             background: rgba(20, 58, 94, 0.05);
         }
@@ -319,7 +308,6 @@
             flex-shrink: 0;
         }
 
-        .tier-4 .link-icon,
         .booth-list .link-icon {
             color: var(--primary-blue);
         }
@@ -344,7 +332,6 @@
             font-weight: 500;
             margin-top: 4px;
         }
-        .tier-4 .link-desc,
         .booth-list .link-desc {
             color: var(--text-muted);
         }
@@ -355,7 +342,6 @@
             opacity: 0.7;
             transition: transform 0.3s;
         }
-        .tier-4 .link-arrow,
         .booth-list .link-arrow {
             color: var(--primary-blue);
         }
@@ -526,8 +512,7 @@
             <!-- 誠のグローブメンテナンス -->
             <div class="sponsor-card">
                 <div class="ad-image-wrapper">
-                    <!-- ★ .png から .jpg に修正しました -->
-                    <img src="誠のグローブメンテナンス.png" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
+                    <img src="誠のグローブメンテナンス.png" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
                 </div>
                 <a href="https://www.instagram.com/glove_110?igsh=ZnduZ2NtNzdpdXNw&utm_source=qr" target="_blank" rel="noopener noreferrer" class="link-btn">
                     <div class="link-content">
@@ -541,38 +526,42 @@
                 </a>
             </div>
 
-        </div>
-
-        <!-- ==============================================
-             【ブロンズ協賛（画像なし・ボタンのみ）】
-        ================================================== -->
-        <h2 class="section-title serif">Bronze Sponsor</h2>
-        <div class="tier-4">
-
             <!-- 花職人、植栽屋うえる メンタルセラピスト -->
-            <a href="https://www.facebook.com/ueru.ishikuro" target="_blank" rel="noopener noreferrer" class="link-btn">
-                <div class="link-content">
-                    <i class="fa-solid fa-leaf link-icon"></i>
-                    <div class="link-text">
-                        <span class="link-title">花職人、植栽屋うえる メンタルセラピスト</span>
-                        <span class="link-desc"></span>
-                    </div>
+            <div class="sponsor-card">
+                <div class="ad-image-wrapper">
+                    <!-- ▼ ここに「うえる」の画像ファイル名を入れてください ▼ -->
+                    <img src="ここにうえるの画像ファイル名を書いてください.jpg" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
                 </div>
-                <i class="fa-solid fa-chevron-right link-arrow"></i>
-            </a>
+                <a href="https://www.facebook.com/ueru.ishikuro" target="_blank" rel="noopener noreferrer" class="link-btn">
+                    <div class="link-content">
+                        <i class="fa-solid fa-leaf link-icon"></i>
+                        <div class="link-text">
+                            <!-- ▼ 「うえる」の後ろで改行するように修正 ▼ -->
+                            <span class="link-title">花職人、植栽屋うえる<br>メンタルセラピスト</span>
+                            <span class="link-desc"></span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right link-arrow"></i>
+                </a>
+            </div>
 
             <!-- 株式会社タマリバー -->
-            <a href="https://tamariver.co.jp/earthquake-insurance-application-support/
-" target="_blank" rel="noopener noreferrer" class="link-btn">
-                <div class="link-content">
-                    <i class="fa-solid fa-building link-icon"></i>
-                    <div class="link-text">
-                        <span class="link-title">株式会社タマリバー</span>
-                        <span class="link-desc"></span>
-                    </div>
+            <div class="sponsor-card">
+                <div class="ad-image-wrapper">
+                    <!-- ▼ ここに「タマリバー」の画像ファイル名を入れてください ▼ -->
+                    <img src="ここにタマリバーの画像ファイル名を書いてください.jpg" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
                 </div>
-                <i class="fa-solid fa-chevron-right link-arrow"></i>
-            </a>
+                <a href="https://tamariver.co.jp/earthquake-insurance-application-support/" target="_blank" rel="noopener noreferrer" class="link-btn">
+                    <div class="link-content">
+                        <i class="fa-solid fa-building link-icon"></i>
+                        <div class="link-text">
+                            <span class="link-title">株式会社タマリバー</span>
+                            <span class="link-desc"></span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right link-arrow"></i>
+                </a>
+            </div>
 
         </div>
 
