@@ -144,10 +144,10 @@
 
         /* === ランク別グリッドレイアウト === */
         
-        /* ランク大（PC:2列、スマホ:1列） */
+        /* ランク大（1列固定） */
         .tier-1 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 20px;
             margin-bottom: 30px;
             animation: fadeInUp 0.8s ease-out forwards;
@@ -215,10 +215,10 @@
             box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
         }
 
-        /* 広告画像エリア */
+        /* === 広告画像エリアの共通設定 === */
         .ad-image-wrapper {
             width: 100%;
-            background-color: var(--white); /* 画像が見えない余白部分を白に統一 */
+            background-color: var(--white);
             border-radius: 8px;
             overflow: hidden;
             display: flex;
@@ -227,22 +227,50 @@
             position: relative;
         }
 
-        /* 縦長画像に対応するため枠を縦長に調整（3:4） */
-        .tier-1 .ad-image-wrapper { aspect-ratio: 3 / 4; }
-        .tier-2 .ad-image-wrapper { aspect-ratio: 3 / 4; }
+        /* ゴールド（中）は縦長枠（3:4） */
+        .tier-2 .ad-image-wrapper { 
+            aspect-ratio: 3 / 4; 
+        }
         
-        /* シルバーランクは横長・標準の比率に設定 */
-        .tier-3 .ad-image-wrapper { aspect-ratio: 16 / 9; }
+        /* シルバー（小）は正方形枠（1:1） */
+        .tier-3 .ad-image-wrapper { 
+            aspect-ratio: 1 / 1; 
+        }
 
+        /* 画像の共通設定（基本は見切れないように contain） */
         .ad-image {
             width: 100%;
             height: 100%;
-            /* containで画像全体が枠内に収まり、見切れないようにする */
             object-fit: contain;
             display: block;
         }
 
-        /* リンクボタン部分 */
+        /* ★ シルバーランクの画像のみ、枠いっぱいに大きく表示する（cover） */
+        .tier-3 .ad-image {
+            object-fit: cover;
+        }
+
+        /* === スペシャルスポンサー（リアライフ）画像2枚用レイアウト === */
+        .double-image-container {
+            display: grid;
+            grid-template-columns: 1fr; /* スマホ時は縦に1列（2枚が上下に並ぶ） */
+            gap: 12px;
+            width: 100%;
+        }
+        
+        .double-image-container .ad-image-wrapper {
+            aspect-ratio: 3 / 4; /* 画像1枚ずつを縦長枠にする */
+        }
+
+        @media (min-width: 600px) {
+            /* パソコン・タブレット時は横に2列 */
+            .double-image-container {
+                grid-template-columns: 1fr 1fr; 
+            }
+        }
+
+
+        /* === リンクボタン部分 === */
         .link-btn {
             display: flex;
             align-items: center;
@@ -381,42 +409,30 @@
         </div>
 
         <!-- ==============================================
-             【特別協賛（大）画像2名・縦長枠】
+             【特別協賛（大）リアライフ / 画像2枚配置】
         ================================================== -->
         <h2 class="section-title serif">Special Sponsor</h2>
         <div class="tier-1">
             
-            <!-- 1. リアライフ -->
             <div class="sponsor-card">
-                <div class="ad-image-wrapper">
-                    <img src="リアライフ1.png" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
+                <!-- 画像を2枚並べるコンテナ -->
+                <div class="double-image-container">
+                    <div class="ad-image-wrapper">
+                        <!-- 1枚目の画像 -->
+                        <img src="リアライフ1.png" alt="広告画像1" class="ad-image" onerror="this.style.display='none'">
+                    </div>
+                    <div class="ad-image-wrapper">
+                        <!-- ▼ ここにリアライフ様の2枚目の画像ファイル名を入れてください ▼ -->
+                        <img src="リアライフ2.png" alt="広告画像2" class="ad-image" onerror="this.style.display='none'">
+                    </div>
                 </div>
+
                 <a href="https://www.instagram.com/rea_life_toyama/" target="_blank" rel="noopener noreferrer" class="link-btn">
                     <div class="link-content">
                         <i class="fa-solid fa-sun link-icon"></i>
                         <div class="link-text">
-                            <!-- 改行を追加 -->
                             <span class="link-title">輝く女性応援project<br>リアライフ</span>
                             <span class="link-desc">輝く未来へ 一歩踏みだす女性を増やす！</span>
-                        </div>
-                    </div>
-                    <i class="fa-solid fa-chevron-right link-arrow"></i>
-                </a>
-            </div>
-
-            <!-- 2. スペシャルスポンサー 2人目（※適宜お名前やURLを変更してください） -->
-            <div class="sponsor-card">
-                <div class="ad-image-wrapper">
-                    <!-- ▼ ここに2人目の広告画像ファイル名を入れてください ▼ -->
-                    <img src="ここに画像ファイル名を記述してください.jpg" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
-                </div>
-                <!-- ▼ hrefの # を実際のURLに変更してください ▼ -->
-                <a href="#" target="_blank" rel="noopener noreferrer" class="link-btn">
-                    <div class="link-content">
-                        <i class="fa-solid fa-star link-icon"></i>
-                        <div class="link-text">
-                            <span class="link-title">スポンサー様のお名前</span>
-                            <span class="link-desc">サブキャッチコピー</span>
                         </div>
                     </div>
                     <i class="fa-solid fa-chevron-right link-arrow"></i>
@@ -451,7 +467,8 @@
             <!-- 小さな冒険学舎 -->
             <div class="sponsor-card">
                 <div class="ad-image-wrapper">
-                    <img src="小さな冒険学舎.png.jpg" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
+                    <!-- ★ 拡張子の重複（.png.jpg）を .png に修正しました -->
+                    <img src="小さな冒険学舎.png" alt="広告画像" class="ad-image" onerror="this.style.display='none'">
                 </div>
                 <a href="https://chi-bouken.jp/" target="_blank" rel="noopener noreferrer" class="link-btn">
                     <div class="link-content">
@@ -468,7 +485,7 @@
         </div>
 
         <!-- ==============================================
-             【シルバー協賛（小）横長枠】
+             【シルバー協賛（小）正方形枠・大きく表示】
         ================================================== -->
         <h2 class="section-title serif">Silver Sponsor</h2>
         <div class="tier-3">
@@ -533,7 +550,6 @@
         <div class="tier-4">
 
             <!-- 花職人、植栽屋うえる メンタルセラピスト -->
-            <!-- ▼ hrefの # を実際のURLに変更してください ▼ -->
             <a href="#" target="_blank" rel="noopener noreferrer" class="link-btn">
                 <div class="link-content">
                     <i class="fa-solid fa-leaf link-icon"></i>
@@ -546,7 +562,6 @@
             </a>
 
             <!-- 株式会社タマリバー -->
-            <!-- ▼ hrefの # を実際のURLに変更してください ▼ -->
             <a href="#" target="_blank" rel="noopener noreferrer" class="link-btn">
                 <div class="link-content">
                     <i class="fa-solid fa-building link-icon"></i>
